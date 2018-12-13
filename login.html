@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<style>
+    body
+    {
+        
+        position: fixed;
+        top:0px;
+        bottom:0px;
+        left:0px;
+        right:0px;
+    } 
+    div{
+       
+        background-color:aliceblue;
+        margin-right: 30%;
+        margin-left:30%;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        align-content: center;       
+    }
+    
+</style>
+<html>
+<head>
+    <h1 style="font-style: bold;text-align:center">Registration form</h1>
+</head>
+<body>
+    <form name="rgform" onsubmit="return validate()" method="post">
+    <div>
+            <h3>FirstName:</h3>
+            <input type="text" name="firstname" id="fname"><br>
+            <span id="fn" class="text"></span><br>
+            <h3>LastName:</h3>
+            <input type="text"  name="lastname" id="lname"><br>
+            <span id="ln" class="text"></span><br><br>
+            <h3>Email:</h3>
+            <input type="email"  name="email" id="email"><br>
+            <span id="em" class="text"></span><br>
+            <h3>Phone Number:</h3>
+            <input type="number"  name="number" id="num"><br>
+            <span id="pn" class="text"></span><br>
+            <h3>description:</h3>
+            <textarea name="description" id="tarea"></textarea><br>
+            <span id="ta" class="text" ></span><br><br>
+            <input type="submit" value="submit">
+            <input type="reset" value="reset">
+    </div>
+   
+<script type="text/javascript" lang="javascript">
+function validate()
+{
+    var firstname=document.getElementById("fname").value;
+    var lname=document.getElementById("lname").value;
+    var pnum=document.getElementById("num").value;
+    var email=document.getElementById("email").value;
+    var descp=document.getElementById("tarea").value;
+    if( firstname == "" || firstname==null)
+    {
+         document.getElementById("fn").innerHTML="* firshname not to be empty";
+         return false;
+    }
+    else if(lname==""||lname==null)
+    {
+        document.getElementById("ln").innerHTML="* lastname not to be empty";
+     return false;
+    }
+    else if(pnum.length<10)
+    {
+        document.getElementById("pn").innerHTML="* length should be 10";
+        return false;
+    }
+    else if(email=="")
+    {
+        document.getElementById("em").innerHTML="* email not to be empty";
+        return false;
+    }
+    else if(descp=="")
+    {
+        document.getElementById("ta").innerHTML="* description not to be empty";
+        return false;
+    }
+    else if(firstname==""&&lname==""&&pnum==""&&email==""&&descp=="")
+    {
+        document.getElementById("fn").innerHTML="* lastname not to be empty";
+        document.getElementById("ln").innerHTML="* lastname not to be empty";
+        document.getElementById("pn").innerHTML="* lastname not to be empty";
+        document.getElementById("email").innerHTML="* lastname not to be empty";
+        document.getElementById("tarea").innerHTML="* lastname not to be empty";
+        return false;
+    }
+    else
+    {
+        window.alert("form submitted successfully");
+        return true;
+    }
+}
+</script>
+ </form>
+</body>
+
+</html>
